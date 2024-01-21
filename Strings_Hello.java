@@ -7,7 +7,5 @@ public class Strings_Hello {
         System.out.println("Hello");
         int a=5,b=10;
         System.out.printf("Hello i am good i am %d years old and in next 5 years i will be %d years old.",a,b);
-    }
-
-    
+    }    
 }
