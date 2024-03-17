@@ -1,5 +1,6 @@
 //   function overloading we will always do in same class // we cannot do function overloading in different classes
  // function overloading is we are writing same function name but passing different no of argument and assigning different task to each 
+// it is compile time polymorphism  because an compile time compiler will decide that at which time which function will work or executed
 
 class Base{
     public int data;
