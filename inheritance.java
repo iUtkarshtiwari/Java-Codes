@@ -1,76 +1,56 @@
-// public class base{
-//     public int val1;
-//     public int val2;
-//     public void fun(){
-//         System.out.println("i am in base class");
-//     }
-// }
-
-// public class child1 extends base{
-//     public int val3;
-//     public int val4;
-
-// }
-
-// public class child2 extends base{
-//     public int val5;
-//     public void fun2(){
-//         System.out.println("you are in child2 class fun2");
-//     }
-// }
-
-
-
-
-// public class inheritance{
-//             public static void main(String[] args) {
-//                 family obj=new family();
-//                 obj.age=10;
-//                 obj.weight=50;
-//                 obj.fun2();
-//                 System.out.println(obj.age);
-//                 System.out.println(obj.weight);
-                
-//             }
-        
-//         }
-
-
-//         class family{
-//                 public int age;
-//                 public int weight;
-//                 public void fun2(){
-//                     System.out.println("hi welcome to family");
-//                 }
-//             }
-import java.io.*;
+/**
+ * inheritance
+ */
 class Base{
-    public int val1;
-    public int val2;
-    Base(int X,int Y){
-        val1=X;
-        val2=Y;
+        public int data;
+        private String name;
+                                        //we need a default constructor  //else you can do is use the super keyword to acces this base class
+        Base(int x,String str1){
+                data=x;
+                name=str1;
+}
+        // Base(){
+               //this is another method of accessing the base class by making a defaultconstructor by ourself 
+               //You can go with any meethod to access the base class
+        // }
 
+        void BaseDetails()
+        {
+            System.out.println("name : "+name);
+        }
+}
+
+class Child extends Base{
+    public int age;
+    private String school;
+    // Child(){
+    //     super(0,"rahul");     //this we are doing to access the base class as there is no default constructor in Base so we need to write this super so that it can access the value from the Base class 
+    // }
+
+    // Child(int y,String str2){         //if you are calling this paramerterized constructor than you need a default construction means you cannot access the paramerterized function or constructer in/from Base class
+    //     age=y;                        
+    //     school=str2;
+    // }                                    //------
+    
+    Child(int y,String str2,int x,String str1){     //this is how you can access the base class constructor 
+        super(x,str1);                             //by passing the variable in the argument of a function and using super class to access the paramerterized constructor from child class to base class
+        age=y;
+        school=str2;
     }
-    Base(){
-        System.out.println("Base class constructor");
+    void ChildDetails(){
+        super.BaseDetails();     //this we have written after making the private value accessible via the function which we have make of BaseDetails to access in child class we have writter it in child class 
+                                //Name which is private in base class will be printed from the baseDetials in base class we don't need to print the name in child details
+        System.out.println("age: " +age);
+        System.out.println("School: "+school);
+        System.out.println("data of Base class: "+data);
+        // System.out.println("name of Base class: "+name);   //this will show error as we cannot access the private access modifier value for that we need to make a function in base class 
     }
 }
 
-class Child extends Base(){
-    public int val2;
 
-    Child(){
-        super(2,3);
-        System.out.println("Child constructor called");
-    }
-}
-
-
-public class inheritance{
-    public static void main(String[] args) {
-        Child c1=new Child();
-        System.out.println(c1.val1+" "+c1.val2);
-
-    }
+public class inheritance {
+        public static void main(String[] args) {
+            Child c1=new Child(12,"Abc",2000,"happy");
+            c1.ChildDetails();
+        }
 }
