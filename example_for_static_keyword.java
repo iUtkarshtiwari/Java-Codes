@@ -1,14 +1,20 @@
 class demo{
     static void fun(){
-    System.out.println("I am static keyword");
+        // fun2();      // we cannot call non static in static 
+     System.out.println("I am static keyword");
 }
-        void fun2(){
+        static void fun2(){
+            // fun();
             System.out.println(" i am non static keyword");
         }
 }
 
 
 public class example_for_static_keyword {
+
+    static void fun3(){
+        System.out.println("this is fun3 inside main class");
+    } 
     public static void main(String[] args) {
         //use of static keyword :
             // memory allocated at compile time
@@ -17,8 +23,8 @@ public class example_for_static_keyword {
             
             //another static method cannot be accesed from static one
             // to access non static method in static is not allowed
-        demo.fun();    //this comes in a static method
+        demo.fun2();    //this comes in a static method
         // demo.fun2();  //  //this comes in a object method we cannot call a non static keyword
-
+        fun3();
     }
 }
