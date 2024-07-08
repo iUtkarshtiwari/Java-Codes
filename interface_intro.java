@@ -70,7 +70,7 @@ import java.io.*;
       void OilingSystem();  // public 
   }
     //private < protected < default < public
- abstract class BMW implements Car{
+ abstract class BMW implements Car{              //////if once we make a class abstracft in interface than their is no requirement of mkaing all the methods present in an inteface above the class 
     
       public void OilingSystem(){
           System.out.println("i am oiling System of BMW");
